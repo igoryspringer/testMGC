@@ -1,0 +1,172 @@
+body {
+    background: #E5E5E5;
+}
+
+/* Rectangle 1 */
+div.rectangle_1 {
+    position: relative;
+    width: 1034px;
+    height: 735px;
+    left: 203px;
+    top: 92px;
+
+    background: #F8F8FB;
+    box-shadow: 11px 4px 10px rgba(0, 0, 0, 0.06);
+    border-radius: 38px;
+}
+
+/* My Expenses */
+#my_expenses {
+    position: relative;
+    width: 173px;
+    height: 37px;
+    /*left: 634px;
+    top: 133px;*/
+
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 27px;
+    line-height: 37px;
+/* identical to box height */
+    color: #000000;
+}
+
+/* Rectangle 2 */
+div.rectangle_2 {
+    position: relative;
+    width: 586px;
+    height: 71px;
+    /*left: 597px;
+    top: 185px;*/
+
+    background: #3EC5CE;
+    box-shadow: 5px 5px 8px rgba(58, 58, 58, 0.17);
+    border-radius: 20px;
+}
+
+/* 07 Mar, 2020 */
+.current_date {
+    position: fixed;
+    width: 169px;
+    height: 37px;
+    left: 805px;
+    top: 202px;
+
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 27px;
+    line-height: 37px;
+/* identical to box height */
+
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+/* Rectangle 4 */
+div.rectangle_4 {
+    position: relative;
+    width: 223px;
+    height: 223px;
+    /*left: 247px;
+    top: 509px;*/
+
+    background: #FFFFFF;
+    box-shadow: 4px 4px 23px rgba(0, 0, 0, 0.19);
+    border-radius: 20px;
+}
+
+/* Rectangle 5 */
+div.rectangle_5 {
+    position: relative;
+    width: 586px;
+    height: 336px;
+    /*left: 597px;
+    top: 289px;*/
+
+    background: #FFFFFF;
+    box-shadow: 4px 4px 23px rgba(0, 0, 0, 0.19);
+    border-radius: 20px;
+}
+
+/* Rectangle 5.2 */
+div.rectangle_5_2 {
+    position: relative;
+    width: 586px;
+    /*height: 336px;
+    left: 597px;
+    top: 289px;
+
+    background: #FFFFFF;
+    box-shadow: 4px 4px 23px rgba(0, 0, 0, 0.19);
+    border-radius: 20px;*/
+}
+
+/* Rectangle 6 */
+button.rectangle_6 {
+    position: relative;
+    width: 206px;
+    height: 58px;
+    /*left: 666px;
+    top: 656px;*/
+
+    background: #0FB986;
+    box-shadow: 5px 5px 8px rgba(58, 58, 58, 0.17);
+    border-radius: 37px;
+}
+
+/* Rectangle 7 */
+button.rectangle_7 {
+    position: relative;
+    width: 206px;
+    height: 58px;
+    /*left: 908px;
+    top: 656px;*/
+
+    background: #F33759;
+    box-shadow: 5px 5px 8px rgba(58, 58, 58, 0.17);
+    border-radius: 37px;
+}
+
+/* Rectangle 8 */
+div.rectangle_8 {
+    position: relative;
+    width: 304px;
+    height: 70px;
+    /*left: 617px;
+    top: 726px;*/
+
+    background: #FFFFFF;
+    box-shadow: 4px 4px 23px rgba(0, 0, 0, 0.19);
+    border-radius: 20px;
+}
+
+/* Rectangle 9 */
+.rectangle_9 {
+    position: relative;
+    width: 161px;
+    height: 37px;
+    /*left: 632px;
+    top: 742px;*/
+    margin: auto;
+
+    background: #FFFFFF;
+    box-shadow: 4px 4px 23px rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+}
+
+/* Rectangle 10 */
+.rectangle_10 {
+    position: relative;
+    width: 106px;
+    height: 37px;
+    /*left: 802px;
+    top: 742px;*/
+    margin: auto;
+
+    background: #FFFFFF;
+    box-shadow: 4px 4px 23px rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+}

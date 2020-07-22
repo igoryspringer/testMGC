@@ -1,0 +1,113 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}My Expenses{% endblock %}
+
+{% block body %}
+    <div class="">
+        <div class="rectangle_1">
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col">
+                            <h1 class="text-center text-dark">My Expenses</h1>
+                        </div><!-- /.col -->
+                    </div><!-- /.row -->
+                </div><!-- /.container-fluid -->
+            </div>
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <section class="col-lg-4 connectedSortable ui-sortable">
+                            <div class="card-body">
+                                <h4>Filters:</h4>
+                                <div class="nav flex-column nav-tabs h-100" id="vert-tabs-tab" role="tablist" aria-orientation="vertical">
+                                    <a class="nav-link active" id="vert-tabs-home-tab" data-toggle="pill" href="#vert-tabs-home" role="tab" aria-controls="vert-tabs-home" aria-selected="true">Today</a>
+                                    <a class="nav-link" id="vert-tabs-profile-tab" data-toggle="pill" href="#vert-tabs-profile" role="tab" aria-controls="vert-tabs-profile" aria-selected="false">Yesterday</a>
+                                    <a class="nav-link" id="vert-tabs-messages-tab" data-toggle="pill" href="#vert-tabs-messages" role="tab" aria-controls="vert-tabs-messages" aria-selected="false">This week</a>
+                                </div>
+                            </div>
+                            <!-- Calendar -->
+                            <h4>Choose day range:</h4>
+                            <div class="card rectangle_4">
+                                <div class="card-header border-0 ui-sortable-handle" style="cursor: move;">
+                                    <h3 class="card-title">
+                                        <i class="far fa-calendar-alt"></i>
+                                        Calendar
+                                    </h3>
+                                    <!-- tools card -->
+                                    <div class="card-tools">
+                                        <!-- button with a dropdown -->
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown" data-offset="-52">
+                                                <i class="fas fa-bars"></i></button>
+                                            <div class="dropdown-menu" role="menu">
+                                                <a href="#" class="dropdown-item">Add new event</a>
+                                                <a href="#" class="dropdown-item">Clear events</a>
+                                                <div class="dropdown-divider"></div>
+                                                <a href="#" class="dropdown-item">View calendar</a>
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn btn-success btn-sm" data-card-widget="collapse">
+                                            <i class="fas fa-minus"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-success btn-sm" data-card-widget="remove">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </div>
+                                    <!-- /. tools -->
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body pt-0">
+                                    <!--The calendar -->
+                                    <div id="calendar" style="width: auto"><div class="bootstrap-datetimepicker-widget usetwentyfour"><ul class="list-unstyled"><li class="show"><div class="datepicker"><div class="datepicker-days" style=""><table class="table table-sm"><thead><tr><th class="prev" data-action="previous"><span class="fa fa-chevron-left" title="Previous Month"></span></th><th class="picker-switch" data-action="pickerSwitch" colspan="5" title="Select Month">July 2020</th><th class="next" data-action="next"><span class="fa fa-chevron-right" title="Next Month"></span></th></tr><tr><th class="dow">Su</th><th class="dow">Mo</th><th class="dow">Tu</th><th class="dow">We</th><th class="dow">Th</th><th class="dow">Fr</th><th class="dow">Sa</th></tr></thead><tbody><tr><td data-action="selectDay" data-day="06/28/2020" class="day old weekend">28</td><td data-action="selectDay" data-day="06/29/2020" class="day old">29</td><td data-action="selectDay" data-day="06/30/2020" class="day old">30</td><td data-action="selectDay" data-day="07/01/2020" class="day">1</td><td data-action="selectDay" data-day="07/02/2020" class="day">2</td><td data-action="selectDay" data-day="07/03/2020" class="day">3</td><td data-action="selectDay" data-day="07/04/2020" class="day weekend">4</td></tr><tr><td data-action="selectDay" data-day="07/05/2020" class="day weekend">5</td><td data-action="selectDay" data-day="07/06/2020" class="day">6</td><td data-action="selectDay" data-day="07/07/2020" class="day">7</td><td data-action="selectDay" data-day="07/08/2020" class="day">8</td><td data-action="selectDay" data-day="07/09/2020" class="day">9</td><td data-action="selectDay" data-day="07/10/2020" class="day">10</td><td data-action="selectDay" data-day="07/11/2020" class="day weekend">11</td></tr><tr><td data-action="selectDay" data-day="07/12/2020" class="day weekend">12</td><td data-action="selectDay" data-day="07/13/2020" class="day">13</td><td data-action="selectDay" data-day="07/14/2020" class="day">14</td><td data-action="selectDay" data-day="07/15/2020" class="day">15</td><td data-action="selectDay" data-day="07/16/2020" class="day">16</td><td data-action="selectDay" data-day="07/17/2020" class="day">17</td><td data-action="selectDay" data-day="07/18/2020" class="day weekend">18</td></tr><tr><td data-action="selectDay" data-day="07/19/2020" class="day weekend">19</td><td data-action="selectDay" data-day="07/20/2020" class="day">20</td><td data-action="selectDay" data-day="07/21/2020" class="day">21</td><td data-action="selectDay" data-day="07/22/2020" class="day active today">22</td><td data-action="selectDay" data-day="07/23/2020" class="day">23</td><td data-action="selectDay" data-day="07/24/2020" class="day">24</td><td data-action="selectDay" data-day="07/25/2020" class="day weekend">25</td></tr><tr><td data-action="selectDay" data-day="07/26/2020" class="day weekend">26</td><td data-action="selectDay" data-day="07/27/2020" class="day">27</td><td data-action="selectDay" data-day="07/28/2020" class="day">28</td><td data-action="selectDay" data-day="07/29/2020" class="day">29</td><td data-action="selectDay" data-day="07/30/2020" class="day">30</td><td data-action="selectDay" data-day="07/31/2020" class="day">31</td><td data-action="selectDay" data-day="08/01/2020" class="day new weekend">1</td></tr><tr><td data-action="selectDay" data-day="08/02/2020" class="day new weekend">2</td><td data-action="selectDay" data-day="08/03/2020" class="day new">3</td><td data-action="selectDay" data-day="08/04/2020" class="day new">4</td><td data-action="selectDay" data-day="08/05/2020" class="day new">5</td><td data-action="selectDay" data-day="08/06/2020" class="day new">6</td><td data-action="selectDay" data-day="08/07/2020" class="day new">7</td><td data-action="selectDay" data-day="08/08/2020" class="day new weekend">8</td></tr></tbody></table></div><div class="datepicker-months" style="display: none;"><table class="table-condensed"><thead><tr><th class="prev" data-action="previous"><span class="fa fa-chevron-left" title="Previous Year"></span></th><th class="picker-switch" data-action="pickerSwitch" colspan="5" title="Select Year">2020</th><th class="next" data-action="next"><span class="fa fa-chevron-right" title="Next Year"></span></th></tr></thead><tbody><tr><td colspan="7"><span data-action="selectMonth" class="month">Jan</span><span data-action="selectMonth" class="month">Feb</span><span data-action="selectMonth" class="month">Mar</span><span data-action="selectMonth" class="month">Apr</span><span data-action="selectMonth" class="month">May</span><span data-action="selectMonth" class="month">Jun</span><span data-action="selectMonth" class="month active">Jul</span><span data-action="selectMonth" class="month">Aug</span><span data-action="selectMonth" class="month">Sep</span><span data-action="selectMonth" class="month">Oct</span><span data-action="selectMonth" class="month">Nov</span><span data-action="selectMonth" class="month">Dec</span></td></tr></tbody></table></div><div class="datepicker-years" style="display: none;"><table class="table-condensed"><thead><tr><th class="prev" data-action="previous"><span class="fa fa-chevron-left" title="Previous Decade"></span></th><th class="picker-switch" data-action="pickerSwitch" colspan="5" title="Select Decade">2020-2029</th><th class="next" data-action="next"><span class="fa fa-chevron-right" title="Next Decade"></span></th></tr></thead><tbody><tr><td colspan="7"><span data-action="selectYear" class="year old">2019</span><span data-action="selectYear" class="year active">2020</span><span data-action="selectYear" class="year">2021</span><span data-action="selectYear" class="year">2022</span><span data-action="selectYear" class="year">2023</span><span data-action="selectYear" class="year">2024</span><span data-action="selectYear" class="year">2025</span><span data-action="selectYear" class="year">2026</span><span data-action="selectYear" class="year">2027</span><span data-action="selectYear" class="year">2028</span><span data-action="selectYear" class="year">2029</span><span data-action="selectYear" class="year old">2030</span></td></tr></tbody></table></div><div class="datepicker-decades" style="display: none;"><table class="table-condensed"><thead><tr><th class="prev" data-action="previous"><span class="fa fa-chevron-left" title="Previous Century"></span></th><th class="picker-switch" data-action="pickerSwitch" colspan="5">2000-2090</th><th class="next" data-action="next"><span class="fa fa-chevron-right" title="Next Century"></span></th></tr></thead><tbody><tr><td colspan="7"><span data-action="selectDecade" class="decade old" data-selection="2006">1990</span><span data-action="selectDecade" class="decade" data-selection="2006">2000</span><span data-action="selectDecade" class="decade active" data-selection="2016">2010</span><span data-action="selectDecade" class="decade" data-selection="2026">2020</span><span data-action="selectDecade" class="decade" data-selection="2036">2030</span><span data-action="selectDecade" class="decade" data-selection="2046">2040</span><span data-action="selectDecade" class="decade" data-selection="2056">2050</span><span data-action="selectDecade" class="decade" data-selection="2066">2060</span><span data-action="selectDecade" class="decade" data-selection="2076">2070</span><span data-action="selectDecade" class="decade" data-selection="2086">2080</span><span data-action="selectDecade" class="decade" data-selection="2096">2090</span><span data-action="selectDecade" class="decade old" data-selection="2106">2100</span></td></tr></tbody></table></div></div></li><li class="picker-switch accordion-toggle"></li></ul></div></div>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
+                        </section>
+                        <section class="col-lg-8 connectedSortable ui-sortable">
+                            <!-- TO DO List -->
+                            <div class="alert alert-info alert-dismissible rectangle_2">
+                                <h3 class="text-center">07 Mar, 2020</h3>
+                            </div>
+                            <div class="card rectangle_5">
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="radio1">
+                                            <label class="form-check-label">Radio</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="radio1" checked="">
+                                            <label class="form-check-label">Radio checked</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" disabled="">
+                                            <label class="form-check-label">Radio disabled</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <div class="rectangle_5_2">
+                                <button type="button" class="btn btn-danger float-md-right rectangle_7"><i class="fas fa-trash"></i> Delete</button>
+                                <button type="button" class="btn btn-success float-md-left rectangle_6"><i class="fas fa-plus-circle"></i> Add new item</button>
+                            </div>
+                            <!-- /.card -->
+                            <div class="card rectangle_8">
+                                <div class="row">
+                                    <div class="rectangle_9">
+                                            <input type="text" class="form-control ">
+                                    </div>
+                                    <div class="rectangle_10">
+                                            <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </div>
+{% endblock %}
