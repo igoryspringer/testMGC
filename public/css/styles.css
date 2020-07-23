@@ -16,12 +16,12 @@ div.rectangle_1 {
 }
 
 /* My Expenses */
-#my_expenses {
+.my_expenses {
     position: relative;
     width: 173px;
     height: 37px;
-    /*left: 634px;
-    top: 133px;*/
+    left: 430px;
+    top: 41px;
 
     font-family: Open Sans;
     font-style: normal;
@@ -37,8 +37,9 @@ div.rectangle_2 {
     position: relative;
     width: 586px;
     height: 71px;
-    /*left: 597px;
-    top: 185px;*/
+    /*right: 54px;
+    top: 15px;*/
+    margin: 52px auto 0px auto;
 
     background: #3EC5CE;
     box-shadow: 5px 5px 8px rgba(58, 58, 58, 0.17);
@@ -46,12 +47,12 @@ div.rectangle_2 {
 }
 
 /* 07 Mar, 2020 */
-.current_date {
-    position: fixed;
+div.current_date {
+    position: relative;
     width: 169px;
     height: 37px;
-    left: 805px;
-    top: 202px;
+    left: 208px;
+    top: 17px;
 
     font-family: Open Sans;
     font-style: normal;
@@ -83,25 +84,34 @@ div.rectangle_5 {
     position: relative;
     width: 586px;
     height: 336px;
-    /*left: 597px;
-    top: 289px;*/
+    /*left: 394px;
+    top: 33px;*/
+    margin: 33px auto 0px auto;
+    padding: 53px 53px 53px 72px;
+
 
     background: #FFFFFF;
     box-shadow: 4px 4px 23px rgba(0, 0, 0, 0.19);
     border-radius: 20px;
 }
 
-/* Rectangle 5.2 */
-div.rectangle_5_2 {
+/* Radio item */
+.radio_item {
     position: relative;
-    width: 586px;
-    /*height: 336px;
-    left: 597px;
-    top: 289px;
+    width: 176px;
+    height: 25px;
+    /*left: 700px;
+    top: 337px;*/
+    /*margin: 23px auto 0px 72px;*/
 
-    background: #FFFFFF;
-    box-shadow: 4px 4px 23px rgba(0, 0, 0, 0.19);
-    border-radius: 20px;*/
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 25px;
+    /* identical to box height */
+
+    color: #3A3A3A;
 }
 
 /* Rectangle 6 */
@@ -111,10 +121,29 @@ button.rectangle_6 {
     height: 58px;
     /*left: 666px;
     top: 656px;*/
+    margin: 31px 36px 0px auto;
 
     background: #0FB986;
     box-shadow: 5px 5px 8px rgba(58, 58, 58, 0.17);
     border-radius: 37px;
+}
+
+/* Add new item */
+.add_item {
+    position: relative;
+    width: 134px;
+    height: 27px;
+    /*left: 719px;
+    top: 672px;*/
+
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 27px;
+
+        color: #FFFFFF;
+
 }
 
 /* Rectangle 7 */
@@ -124,10 +153,28 @@ button.rectangle_7 {
     height: 58px;
     /*left: 908px;
     top: 656px;*/
+    margin: 31px auto 0px 36px;
 
     background: #F33759;
     box-shadow: 5px 5px 8px rgba(58, 58, 58, 0.17);
     border-radius: 37px;
+}
+
+/* Delete item */
+.delete_item{
+    position: relative;
+    width: 113px;
+    height: 27px;
+    /*left: 971px;
+    top: 672px;*/
+
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 27px;
+
+    color: #FFFFFF;
 }
 
 /* Rectangle 8 */
@@ -137,10 +184,23 @@ div.rectangle_8 {
     height: 70px;
     /*left: 617px;
     top: 726px;*/
+    margin: 12px auto 0px 52px;
 
     background: #FFFFFF;
     box-shadow: 4px 4px 23px rgba(0, 0, 0, 0.19);
     border-radius: 20px;
+}
+
+/* Polygon 3 */
+.polygon_3{
+    position: relative;
+    width: 45px;
+    height: 17px;
+    /*left: 747px;
+    top: 717px;*/
+
+    background: #FCFCFC;
+    border-radius: 5px;
 }
 
 /* Rectangle 9 */
@@ -150,7 +210,7 @@ div.rectangle_8 {
     height: 37px;
     /*left: 632px;
     top: 742px;*/
-    margin: auto;
+    margin: 16px 9px auto auto;
 
     background: #FFFFFF;
     box-shadow: 4px 4px 23px rgba(0, 0, 0, 0.19);
@@ -164,9 +224,108 @@ div.rectangle_8 {
     height: 37px;
     /*left: 802px;
     top: 742px;*/
-    margin: auto;
+    margin: 16px auto auto 9px;
 
     background: #FFFFFF;
     box-shadow: 4px 4px 23px rgba(0, 0, 0, 0.19);
     border-radius: 5px;
+}
+
+/* Filters: */
+.filter {
+    position: relative;
+    width: 79px;
+    height: 31px;
+    /*left: 245px;
+    top: 220px;*/
+    margin: 97px auto auto 42px;
+
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 23px;
+    line-height: 31px;
+
+    color: #3A3A3A;
+}
+
+/* Rectangle 11 */
+.nav-link.active {
+    position: relative;
+    width: 210px;
+    height: 45px;
+    /*left: 253px;
+    top: 280px;*/
+
+    background: #3A3A3A;
+    box-shadow: 5px 5px 8px rgba(58, 58, 58, 0.17);
+    border-radius: 11px;
+}
+
+/* Font rectangle 11 */
+.filters {
+    position: relative;
+    width: 59px;
+    height: 23px;
+    /*left: 270px;
+    top: 289px;*/
+    margin: 29px 0px 0px 50px;
+
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 27px;
+
+    color: #FFFFFF;
+}
+
+/* Choose date range: */
+.font_choose {
+    position: relative;
+    /*width: 239px;
+    height: 23px;
+    /*left: 270px;
+    top: 455px;*/
+    margin: 116px 0px 0px 72px;
+
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 27px;
+
+    color: #3A3A3A;
+}
+
+.icalendar {
+    border: 2px solid white;
+    -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, .1);
+    min-width: 223px;
+    max-width: 223px;
+    margin-top: 20px;
+    margin-left: 44px;
+
+    background: #FFFFFF;
+    box-shadow: 4px 4px 23px rgba(0, 0, 0, 0.19);
+    border-radius: 20px;
+}
+
+.icalendar__month {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background-color: #2ecc71;
+    width: 100%;
+    padding: 10px;
+    color: #fff;
+    text-align: center;
+
+    border-radius: 20px;
 }
