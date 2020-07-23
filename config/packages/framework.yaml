@@ -1,4 +1,4 @@
-# see https://symfony.com/doc/current/reference/configuration/framework.html
+    # see https://symfony.com/doc/current/reference/configuration/framework.html
 framework:
     secret: '%env(APP_SECRET)%'
     #csrf_protection: true
@@ -15,3 +15,5 @@ framework:
     #fragments: true
     php_errors:
         log: true
+
+    csrf_protection: ~

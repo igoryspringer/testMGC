@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class MainController extends AbstractController
 {
     /**
-     * @Route("/main", name="main")
+     * @Route("/main", name="main", methods={"GET", "POST"})
      * @param ProductRepository $productRepository
      * @param Request $request
      * @return Response
@@ -59,11 +59,11 @@ class MainController extends AbstractController
         ]);
     }
 
-    /**
+    /*
      * @Route("/new", name="product_new", methods={"GET","POST"})
      * @param Request $request
      * @return Response
-     */
+
     public function new(Request $request): Response
     {
         $product = new Product();
@@ -82,7 +82,7 @@ class MainController extends AbstractController
             'product' => $product,
             'form' => $form->createView(),
         ]);
-    }
+    }*/
 
     /**
      * @Route("/{id}", name="product_delete", methods={"DELETE"})
@@ -98,6 +98,6 @@ class MainController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('product_index');
+        return $this->redirectToRoute('main');
     }
 }
