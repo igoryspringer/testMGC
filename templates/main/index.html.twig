@@ -62,11 +62,13 @@
                         <div class="form-check radio_item">
                             <table class="table table-borderless">
                                 <tbody>
+                                {% for product in products %}
                                     <tr>
                                         <th scope="row"><input class="form-check-input" type="radio" name=""></th>
-                                        <td><label class="form-check-label">Cost</label></td>
-                                        <td style="padding-left: 270px;"><label class="form-check-label">$50</label></td>
+                                        <td><label class="form-check-label">{{ product.title }}</label></td>
+                                        <td style="padding-left: 100px;"><label class="form-check-label">$ {{ product.cost }}</label></td>
                                     </tr>
+                                {% endfor %}
                                 </tbody>
                             </table>
                         </div>

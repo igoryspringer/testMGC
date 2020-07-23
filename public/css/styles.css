@@ -98,7 +98,7 @@ div.rectangle_5 {
 /* Radio item */
 .radio_item {
     position: relative;
-    width: 176px;
+    /*width: 176px;
     height: 25px;
     /*left: 700px;
     top: 337px;*/
@@ -112,6 +112,10 @@ div.rectangle_5 {
     /* identical to box height */
 
     color: #3A3A3A;
+}
+
+.add_label {
+    padding-left: 50px;
 }
 
 /* Rectangle 6 */
