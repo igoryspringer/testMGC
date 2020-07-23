@@ -84,16 +84,14 @@
                         <span class="delete_item">Delete item</span>
                     </button>
                 </div>
-                <div class="rectangle_8">
-                    <div class="row">
-                        <div class="rectangle_9">
-                            <input type="text" class="form-control ">
-                        </div>
-                        <div class="rectangle_10">
-                            <input type="text" class="form-control">
+                <form method="post">
+                    <div class="rectangle_8">
+                        <div class="row">
+                            <input type="text" id="product_title" name="product[title]" required="required" placeholder="Name of item" class="rectangle_9">
+                            <input type="text" id="product_cost" name="product[cost]" required="required" placeholder="Price" class="rectangle_10">
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>
