@@ -19,6 +19,39 @@ class ProductRepository extends ServiceEntityRepository
         parent::__construct($registry, Product::class);
     }
 
+    public function findByDate($value): array
+    {
+        $entityManager = $this->getEntityManager();
+        $query = $entityManager->createQuery(
+            'SELECT c
+            FROM App\Entity\Product c
+            WHERE (
+            c.createdAt = :val
+            )
+            ORDER BY c.id DESC'
+        )->setParameter('val', $value);
+        // returns an array of Product objects
+        return $query->getResult();
+    }
+
+    /**
+    * @return Product[] Returns an array of Product objects
+    */
+
+    public function findByTimeInterval($from, $to)
+    {
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.createdAt BETWEEN :from AND :to')
+            ->setParameter('from', $from)
+            ->setParameter('to', $to)
+            ->orderBy('p.id', 'DESC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+
     // /**
     //  * @return Product[] Returns an array of Product objects
     //  */

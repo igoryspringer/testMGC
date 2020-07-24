@@ -27,3 +27,44 @@ function sendAjaxForm(result_form, ajax_form, url) {
         }
     });
 }*/
+
+$( document ).ready(function() {
+
+    $('#today').click(
+        function(){
+            sendAjaxForm('today');
+            return false;
+        }
+    );
+
+    $('#yesterday').click(
+        function(){
+            sendAjaxForm("yesterday");
+            return false;
+        }
+    );
+
+    $('#thisweek').click(
+        function(){
+            sendAjaxForm("week");
+            return false;
+        }
+    );
+});
+
+function sendAjaxForm(date) {
+    $.ajax({
+        url: '/date',
+        type: 'POST',
+        dataType: 'html',
+        data: {'date': date},
+        async: true,
+
+        success: function(html) {
+            $('#list').html(html);
+        },
+        error: function(response) {
+            $('#list').html('Error. Data not send.');
+        }
+    });
+}

@@ -39,50 +39,35 @@ class MainController extends AbstractController
     }
 
     /**
-     * @Route("/main/date/{date}", name="get_date")
+     * @Route("/date", name="get_date", methods={"POST"})
      * @param ProductRepository $productRepository
      * @param Request $request
      * @return Response
      */
     public function getByDate(ProductRepository $productRepository, Request $request): Response
     {
-        $date = $request->query->get('date');
-        if (isset($date)) {
-            $products = $productRepository->findBy(
-                ['createdAt' => $date],
-                ['id' => 'DESC']
-            );
+        $date = $request->request->get('date');
+        if (!empty($date)) {
+            if ($date == 'today' || $date == 'yesterday') {
+                $date = date('Y-m-d', strtotime($date));
+                $from = $date.' 00:00:00';
+                $to = $date.' 23:59:59';
+            } else if ($date == 'week') {
+                $monday = strtotime('last monday') - 3600*24*7;
+                $sunday = $monday + 3600*24*6;
+                $from = date('Y-m-d', $monday).' 00:00:00';
+                $to = date('Y-m-d', $sunday).' 23:59:59';
+            }
+
+            $date = $productRepository->findByTimeInterval($from, $to);
+
+            return $this->render('main/_form.html.twig', [
+                'products' => $date,
+            ]);
         }
 
-        return $this->render('main/index.html.twig', [
-            'products' => $products,
-        ]);
+        return $this->redirectToRoute('main');
     }
-
-    /*
-     * @Route("/new", name="product_new", methods={"GET","POST"})
-     * @param Request $request
-     * @return Response
-
-    public function new(Request $request): Response
-    {
-        $product = new Product();
-        $form = $this->createForm(ProductType::class, $product);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($product);
-            $entityManager->flush();
-
-            return $this->redirectToRoute('product_index');
-        }
-
-        return $this->render('product/new.html.twig', [
-            'product' => $product,
-            'form' => $form->createView(),
-        ]);
-    }*/
 
     /**
      * @Route("/{id}", name="product_delete", methods={"DELETE"})
