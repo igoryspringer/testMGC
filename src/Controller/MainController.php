@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Product;
 use App\Form\ProductType;
 use App\Repository\ProductRepository;
+use DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -32,9 +33,11 @@ class MainController extends AbstractController
             return $this->redirectToRoute('main');
         }
 
+        $date = date('d M, Y');
         return $this->render('main/index.html.twig', [
             'form' => $form->createView(),
-            'products' => $productRepository->findAll(),
+            'products' => $productRepository->findByDate(date('d-m-Y')),
+            'date' => $date,
         ]);
     }
 
@@ -47,22 +50,31 @@ class MainController extends AbstractController
     public function getByDate(ProductRepository $productRepository, Request $request): Response
     {
         $date = $request->request->get('date');
+
         if (!empty($date)) {
             if ($date == 'today' || $date == 'yesterday') {
                 $date = date('Y-m-d', strtotime($date));
                 $from = $date.' 00:00:00';
                 $to = $date.' 23:59:59';
+                $date = DateTime::createFromFormat('Y-m-d H:i:s', $from)->format('d M, Y');
             } else if ($date == 'week') {
-                $monday = strtotime('last monday') - 3600*24*7;
+                $monday = strtotime('last monday')/* - 3600*24*7*/;
                 $sunday = $monday + 3600*24*6;
                 $from = date('Y-m-d', $monday).' 00:00:00';
                 $to = date('Y-m-d', $sunday).' 23:59:59';
+                $date = DateTime::createFromFormat('Y-m-d H:i:s', $from)->format('d M, Y').'..'/*.DateTime::createFromFormat('Y-m-d H:i:s', $to)->format('d M, Y')*/;
+            } else {
+                $date = date('Y-m-d', strtotime($date));
+                $from = $date.' 00:00:00';
+                $to = $date.' 23:59:59';
+                $date = DateTime::createFromFormat('Y-m-d H:i:s', $from)->format('d M, Y');
             }
 
-            $date = $productRepository->findByTimeInterval($from, $to);
+            $data = $productRepository->findByTimeInterval($from, $to);
 
             return $this->render('main/_form.html.twig', [
-                'products' => $date,
+                'products' => $data,
+                'date' => $date,
             ]);
         }
 

@@ -51,12 +51,7 @@
                 </div>
             </div>
             <div class="col-8">
-                <div class="rectangle_2">
-                    <div class="current_date">
-                        <span class="text-center">{{ "now"|date("d M, Y") }}</span>
-                    </div>
-                </div>
-                <div class="rectangle_5" id="list">
+                <div id="list">
                     {{ include('main/_form.html.twig') }}
                 </div>
                 <form name="product" method="post" id="product">

@@ -50,6 +50,15 @@ $( document ).ready(function() {
             return false;
         }
     );
+    $('.icalendar__days div').click(
+        function(){
+            let day = $(this).text();
+            let month = $('#icalendarMonth').text();
+            let elem = (day + ' ' + month);
+            sendAjaxForm(elem);
+            return false;
+        }
+    );
 });
 
 function sendAjaxForm(date) {

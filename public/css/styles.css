@@ -61,7 +61,7 @@ div.current_date {
     line-height: 37px;
 /* identical to box height */
 
-    text-align: center;
+    /*text-align: center;*/
 
     color: #FFFFFF;
 }
