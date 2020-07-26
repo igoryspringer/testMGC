@@ -1,33 +1,3 @@
-/*$(document).ready(function(){
-    $('div').scrollspy({target: ".rectangle_5", offset: 50});
-});*/
-
-/* AJAX form */
-/*$( document ).ready(function() {
-    $("#btn-form").click(
-        function(){
-            sendAjaxForm('result_form', 'form', '/main');
-            return false;
-        }
-    );
-});
-
-function sendAjaxForm(result_form, ajax_form, url) {
-    $.ajax({
-        url:     url, //url страницы (action_ajax_form.php)
-        type:     "POST", //метод отправки
-        dataType: "html", //формат данных
-        data: $("#" + ajax_form).serialize(),  // Сеарилизуем объект
-        success: function(response) { //Данные отправлены успешно
-            result = $.parseJSON(response);
-            $('#result_form').html('');
-        },
-        error: function(response) { // Данные не отправлены
-            $('#result_form').html('Error. Data not send.');
-        }
-    });
-}*/
-
 $( document ).ready(function() {
 
     $('#today').click(
@@ -56,6 +26,7 @@ $( document ).ready(function() {
             return false;
         }
     );
+
     $('.icalendar .icalendar__days div').click(
         function(){
             $('.icalendar .icalendar__days div.icalendar__today').removeClass('icalendar__today');
@@ -68,6 +39,17 @@ $( document ).ready(function() {
             return false;
         }
     );
+
+    $('#btn-del').click(
+        function(){
+            if(confirm('Delete?')) {
+                let delelem = $('input[name=delete]:checked').val();
+                let curdate = $('#current_date').text();
+                sendAjaxDelete(delelem, curdate);
+                return false;
+            }
+        }
+    );
 });
 
 function sendAjaxForm(date) {
@@ -76,6 +58,23 @@ function sendAjaxForm(date) {
         type: 'POST',
         dataType: 'html',
         data: {'date': date},
+        async: true,
+
+        success: function(html) {
+            $('#list').html(html);
+        },
+        error: function(response) {
+            $('#list').html('Error. Data not send.');
+        }
+    });
+}
+
+function sendAjaxDelete(delelem, curdate) {
+    $.ajax({
+        url: "/del",
+        type: 'POST',
+        dataType: 'html',
+        data: {'delete': delelem, 'date': curdate},
         async: true,
 
         success: function(html) {

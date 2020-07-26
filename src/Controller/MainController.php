@@ -36,11 +36,10 @@ class MainController extends AbstractController
         $date = date('Y-m-d');
         $from = $date.' 00:00:00';
         $to = $date.' 23:59:59';
-        $date = DateTime::createFromFormat('Y-m-d H:i:s', $from)->format('d M, Y');
         return $this->render('main/index.html.twig', [
             'form' => $form->createView(),
             'products' => $productRepository->findByTimeInterval($from, $to),
-            'date' => $date,
+            'date' => DateTime::createFromFormat('Y-m-d H:i:s', $from)->format('d M, Y'),
         ]);
     }
 
@@ -59,25 +58,20 @@ class MainController extends AbstractController
                 $date = date('Y-m-d', strtotime($date));
                 $from = $date.' 00:00:00';
                 $to = $date.' 23:59:59';
-                $date = DateTime::createFromFormat('Y-m-d H:i:s', $from)->format('d M, Y');
             } else if ($date == 'week') {
                 $monday = strtotime('last monday')/* - 3600*24*7*/;
                 $sunday = $monday + 3600*24*6;
                 $from = date('Y-m-d', $monday).' 00:00:00';
                 $to = date('Y-m-d', $sunday).' 23:59:59';
-                $date = DateTime::createFromFormat('Y-m-d H:i:s', $from)->format('d M, Y').'..'/*.DateTime::createFromFormat('Y-m-d H:i:s', $to)->format('d M, Y')*/;
             } else {
                 $date = date('Y-m-d', strtotime($date));
                 $from = $date.' 00:00:00';
                 $to = $date.' 23:59:59';
-                $date = DateTime::createFromFormat('Y-m-d H:i:s', $from)->format('d M, Y');
             }
 
-            $data = $productRepository->findByTimeInterval($from, $to);
-
             return $this->render('main/_data.html.twig', [
-                'products' => $data,
-                'date' => $date,
+                'products' => $productRepository->findByTimeInterval($from, $to),
+                'date' => DateTime::createFromFormat('Y-m-d H:i:s', $from)->format('d M, Y'),
             ]);
         }
 
@@ -85,19 +79,29 @@ class MainController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="product_delete", methods={"DELETE"})
+     * @Route("/del", name="products_delete", methods={"POST", "DELETE"})
+     * @param ProductRepository $productRepository
      * @param Request $request
-     * @param Product $product
      * @return Response
      */
-    public function delete(Request $request, Product $product): Response
+    public function delete(ProductRepository $productRepository, Request $request): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$product->getId(), $request->request->get('_token'))) {
+        $id = $request->request->get('delete');
+        $date = $request->request->get('date');
+
+        $product = $this->getDoctrine()
+            ->getRepository(Product::class)
+            ->find($id);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($product);
             $entityManager->flush();
-        }
 
-        return $this->redirectToRoute('main');
+        $newdate = DateTime::createFromFormat('d M, Y', $date)->format('Y-m-d');
+        $from = $newdate.' 00:00:00';
+        $to = $newdate.' 23:59:59';
+        return $this->render('main/_data.html.twig', [
+            'products' => $productRepository->findByTimeInterval($from, $to),
+            'date' => $date,
+        ]);
     }
 }
