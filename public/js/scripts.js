@@ -32,6 +32,8 @@ $( document ).ready(function() {
 
     $('#today').click(
         function(){
+            $('.nav-link.active').removeClass('active');
+            $('#today').addClass('active');
             sendAjaxForm('today');
             return false;
         }
@@ -39,6 +41,8 @@ $( document ).ready(function() {
 
     $('#yesterday').click(
         function(){
+            $('.nav-link.active').removeClass('active');
+            $('#yesterday').addClass('active');
             sendAjaxForm("yesterday");
             return false;
         }
@@ -46,12 +50,16 @@ $( document ).ready(function() {
 
     $('#thisweek').click(
         function(){
+            $('.nav-link.active').removeClass('active');
+            $('#thisweek').addClass('active');
             sendAjaxForm("week");
             return false;
         }
     );
     $('.icalendar__days div').click(
         function(){
+            $('.icalendar__days div.icalendar__today').removeClass('icalendar__today');
+            $(this).addClass('icalendar__today');
             let day = $(this).text();
             let month = $('#icalendarMonth').text();
             let elem = (day + ' ' + month);
