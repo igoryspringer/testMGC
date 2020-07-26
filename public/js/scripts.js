@@ -56,13 +56,14 @@ $( document ).ready(function() {
             return false;
         }
     );
-    $('.icalendar__days div').click(
+    $('.icalendar .icalendar__days div').click(
         function(){
-            $('.icalendar__days div.icalendar__today').removeClass('icalendar__today');
+            $('.icalendar .icalendar__days div.icalendar__today').removeClass('icalendar__today');
             $(this).addClass('icalendar__today');
             let day = $(this).text();
             let month = $('#icalendarMonth').text();
             let elem = (day + ' ' + month);
+            //alert(elem);
             sendAjaxForm(elem);
             return false;
         }

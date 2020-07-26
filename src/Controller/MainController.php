@@ -33,10 +33,13 @@ class MainController extends AbstractController
             return $this->redirectToRoute('main');
         }
 
-        $date = date('d M, Y');
+        $date = date('Y-m-d');
+        $from = $date.' 00:00:00';
+        $to = $date.' 23:59:59';
+        $date = DateTime::createFromFormat('Y-m-d H:i:s', $from)->format('d M, Y');
         return $this->render('main/index.html.twig', [
             'form' => $form->createView(),
-            'products' => $productRepository->findByDate(date('d-m-Y')),
+            'products' => $productRepository->findByTimeInterval($from, $to),
             'date' => $date,
         ]);
     }
@@ -72,7 +75,7 @@ class MainController extends AbstractController
 
             $data = $productRepository->findByTimeInterval($from, $to);
 
-            return $this->render('main/_form.html.twig', [
+            return $this->render('main/_data.html.twig', [
                 'products' => $data,
                 'date' => $date,
             ]);

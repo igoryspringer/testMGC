@@ -32,6 +32,11 @@ class Product
      */
     private $createdAt;
 
+    public function __construct()
+    {
+        $this->createdAt = \DateTime::createFromFormat('Y-m-d', date('Y-m-d'));
+    }
+
     public function getId(): ?int
     {
         return $this->id;

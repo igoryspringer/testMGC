@@ -52,28 +52,11 @@
             </div>
             <div class="col-8">
                 <div id="list">
-                    {{ include('main/_form.html.twig') }}
+                    {{ include('main/_data.html.twig') }}
                 </div>
-                <form name="product" method="post" id="product">
-                    <div class="row">
-                        <button type="submit" id="btn-form" class="btn btn-success rectangle_6">
-                            <i class="fas fa-plus-circle"></i>
-                            <span class="add_item">Add new item</span>
-                        </button>
-                        <button type="button" id="btn-del" class="btn btn-danger rectangle_7">
-                            <i class="fas fa-trash"></i>
-                            <span class="delete_item">Delete item</span>
-                        </button>
-                    </div>
-                    <div class="rectangle_8">
-                        <div class="row">
-                            <input type="text" id="product_title" name="product[title]" required="required" placeholder="Name of item" class="rectangle_9">
-                            <input type="text" id="product_cost" name="product[cost]" required="required" placeholder="Price" class="rectangle_10">
-
-                        </div>
-                    </div>
-                </form>
-                <input type="hidden" id="product__token" name="product[_token]" value="1tBWnxS-u0JpvTpsW5Q5ytAheoT_n2sgOmaINA-znPc">
+                <div id="form">
+                    {{ include('main/_form_twig.html.twig') }}
+                </div>
             </div>
         </div>
     </div>
