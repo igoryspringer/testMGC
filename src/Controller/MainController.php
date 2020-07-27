@@ -59,8 +59,9 @@ class MainController extends AbstractController
                 $from = $date.' 00:00:00';
                 $to = $date.' 23:59:59';
             } else if ($date == 'week') {
-                $monday = strtotime('last monday')/* - 3600*24*7*/;
+                $monday = strtotime('last monday');
                 $sunday = $monday + 3600*24*6;
+
                 $from = date('Y-m-d', $monday).' 00:00:00';
                 $to = date('Y-m-d', $sunday).' 23:59:59';
             } else {
@@ -71,7 +72,7 @@ class MainController extends AbstractController
 
             return $this->render('main/_data.html.twig', [
                 'products' => $productRepository->findByTimeInterval($from, $to),
-                'date' => DateTime::createFromFormat('Y-m-d H:i:s', $from)->format('d M, Y'),
+                'date' => DateTime::createFromFormat('Y-m-d H:i:s', $from)->format('d M, Y..'),
             ]);
         }
 
