@@ -181,6 +181,16 @@ button.rectangle_7 {
     color: #FFFFFF;
 }
 
+/* Triangle */
+.triangle {
+    width: 45px;
+    height: 17px;
+    margin: 0px 0px 0px 177px;
+
+    background: #FFFFFF;
+    box-shadow: 4px 4px 23px rgba(0, 0, 0, 0.19);
+}
+
 /* Rectangle 8 */
 div.rectangle_8 {
     position: relative;
@@ -189,6 +199,7 @@ div.rectangle_8 {
     /*left: 617px;
     top: 726px;*/
     margin: 12px auto 0px 52px;
+    /*margin: 0px auto 0px 52px;*/
 
     background: #FFFFFF;
     box-shadow: 4px 4px 23px rgba(0, 0, 0, 0.19);
